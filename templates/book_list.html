@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yangi kitob qo'shish</title>
+</head>
+<body>
+
+{% for b in books %}
+    <h1>Title: {{ b.title }}</h1>
+    <h1>Author: {{ b.author }}</h1>
+    <h1>Description: {{ b.description }}</h1>
+    <h1>Published_date: {{ b.published_date }}</h1>
+<a href="{% url 'book_update' b.pk %}">Yangilash</a><br>
+<a href="{% url 'book_delete' b.pk %}">O‘chirish</a><br>
+
+    <hr>
+{% endfor %}
+
+<a href="{% url 'add_book' %}">Book qo‘shish</a><br>
+<a href="{% url 'home' %}">Orqaga</a>
+
+</body>
+</html>

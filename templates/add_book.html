@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Yangi kitob qo'shish</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Yuborish</button>
+</form>
+
+<a href="{% url 'home' %}">Orqaga</a>
+</body>
+</html>

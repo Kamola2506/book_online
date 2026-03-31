@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Salom Xush Kelibsiz</p>
+
+{% if user.is_authenticated %}
+    <p>Siz Tizim ichidasiz</p>
+    <a href="{% url 'profile' %}">profile</a><br>
+
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+       <a href="{% url 'book_list' %}">Book List</a><br>
+        <button type="submit">Tizimdan Chiqish</button>
+    </form>
+
+{% else %}
+    <p>Siz tizim ichida emassiz! Quyidagi havoladan foydalaning</p>
+    <a href="{% url 'login' %}">Tizimga Kirish</a><br>
+    <p>Accountingiz yo'qmi</p>
+    <a href="{% url 'register' %}">Ro'yxatdan o'tish</a>
+{% endif %}
+
+<br>
+</body>
+</html>

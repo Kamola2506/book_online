@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Detail</title>
+</head>
+<body>
+<p>Book Details</p>
+
+<hr>
+
+{% if book %}
+    <p>Title: {{ book.title }}</p>
+    <p>Author: {{ book.author }}</p>
+    <p>Description: {{ book.description }}</p>
+    <p>Published Year: {{ book.published_year }}</p>
+{% else %}
+    <p>Kitob haqida ma'lumot topilmadi</p>
+{% endif %}
+
+<a href="{% url 'book_list' %}">Back to Book List</a><br>
+<a href="{% url 'home' %}">Back to Home</a>
+<a href="{% url 'book_update' book.pk %}">Yangilash</a><br>
+<a href="{% url 'book_delete' book.pk%}">o'chirish</a><br>
+<hr>
+</body>
+</html>
